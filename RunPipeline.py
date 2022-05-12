@@ -6,14 +6,7 @@ import datetime
 
 start = datetime.datetime.now()
 
-descript="This program closes gaps on draft genomes using paired reads. It includes several modules (in fixed order):\n"
-descript+="\tInitialContig\tBreak the draft genome into contigs\n"
-descript+="\tMapping\tMap sequence reads to the draft genome using BWA and identify anchored reads\n"
-descript+="\tHighCoverage\tIdentify high coverage regions in the contig ends (optional)\n"
-descript+="\tCollectReads\tCollect reads in the gap regions for local assembly and make tab files of linking information between contigs\n"
-descript+="\tScaffold\tGenerate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)\n"
-descript+="\tReEstimateGapSize\tRe-estimate gap sizes and their standard deviations in the scaffolds\n"
-descript+="\tLocalAssembly\tAssemble gap sequences via the robust regression OLC approach\n"
+descript="RegCloser is a genome gap-closing tool based on a robust regression OLC approach, using paired sequence reads.\n\n Contact: cao.shenghao@foxmail.com"
 
 parser = argparse.ArgumentParser(description=descript)
 
