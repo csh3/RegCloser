@@ -30,49 +30,48 @@ g++ -fPIC Banded_Alignment.cpp -o Banded_Alignment.so -shared -I/home/miniconda3
 ```
 
 ## 4. Usage
-###4.1 Pipeline
+### 4.1. Pipeline
 The main program is `RunPipeline.py`, and the pipeline consists of the following 7 modules. You can start or end with any one module by the option `-s` or `-e`.
 
 ```
-1. InitialContig		Break the draft genome into contigs
-2. Mapping 				Map sequence reads to the draft genome using BWA and identify anchored reads
-3. HighDepth			Identify high depth regions in the contig ends (optional)
-4. CollectReads			Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
-5. Scaffold				Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)
+1. InitialContig	Break the draft genome into contigs
+2. Mapping 		Map sequence reads to the draft genome using BWA and identify anchored reads
+3. HighDepth		Identify high depth regions in the contig ends (optional)
+4. CollectReads		Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
+5. Scaffold		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)
 6. ReEstimateGapSize	Re-estimate gap sizes and their standard deviations in the scaffolds
-7. LocalAssembly 	 	Assemble gap sequences via the robust regression OLC approach
+7. LocalAssembly 	Assemble gap sequences via the robust regression OLC approach
 
 ```
 
 We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration and perform several times until no more gaps to be filled.
 
-###4.2 Prerequisite file
+### 4.2. Prerequisite file
 
 A prerequisite file is needed to specify the path of software package and the directory storing the sequence reads, as well as the information of different libraries. An example is illustrated below.
 
 ```
-Code_path:/home/RegCloser
-Reads_directory:/home/E.coli/reads
-frag    	 frag_1.fastq    	  frag_2.fastq    	   300     20     FR    Y
-shortjump    shortjump_1.fastq    shortjump_2.fastq    3600    298    RF    Y
+Code_path: /home/RegCloser
+Reads_directory: /home/E.coli/reads
+frag		frag_1.fastq		frag_2.fastq		300     20     FR    Y
+shortjump	shortjump_1.fastq	shortjump_2.fastq	3600    298    RF    Y
 ```
 The first line specifies the code path, and the second line specifies the reads directory. From the third line, each line describes one reads library and contains 7 columns, separated by spaces or tabs. Each column is explained in more detail below.
 
 ```
 Column 1: 	Name of the library
-			Each library should be designated a different name. 
-Column 2&3: Fastq files for both ends
-			For each paired reads, one of the reads should be in the first file, and the other one in the second file. The paired reads are required to be on the same line.
+		Each library should be designated a different name. 
+Column 2 & 3: 	Fastq files for both ends
+		For each paired reads, one of the reads should be in the first file, and the other one in the second file. The paired reads are required to be on the same line.
 Column 4:	Average insert size between paired reads
 Column 5: 	Standard deviation of insert size between paired reads.
 Column 6: 	Orientation of paired reads, FR or RF
-			F stands for --> orientation, and R for <-- orientation. Paired-end libraries are FR, and mate-pair libraries are RF.
+		F stands for --> orientation, and R for <-- orientation. Paired-end libraries are FR, and mate-pair libraries are RF.
 Column 7: 	Whether the libary is used for local assembly, Y or N
-			Y stands for YES, and N stands for NO that the library is only used to generate scaffolds and re-estimate gap sizes.
-
+		Y stands for YES, and N stands for NO that the library is only used to generate scaffolds and re-estimate gap sizes.
 ```
 
-###4.3 Simple Running
+### 4.3. Simple Running
 Run with 40 threads
 
 ```
@@ -91,7 +90,7 @@ Iterate over the result of *RegCloser*
 python RunPipeline.py -g iter-1/output_genome.fasta -d iter-2 -t 40
 ```
 
-###4.4 Output files
+### 4.4. Output files
 The intermediate and output files are saved under the directory specified by the option `-d`. *RegCloser* outputs 4 result files. They are described in details below.
 
 **output_genome.fasta** saves the output genome sequence with gaps closed by *RegCloser*. You can specify the filename using option `-o` according to your preference.
@@ -102,30 +101,19 @@ The intermediate and output files are saved under the directory specified by the
  
 ```
 Column 1: 	Left contig of a gap
-Column 2:   Right contig of a gap
-Column 3&4:	Length of sequences extending from the left and right boundaries of a gap
-			If the gap was filled, column 4 is 0, and column 3 is the length of the filling sequence.
-			If column 3 is a negative value, it means the two adjacent contigs flanking the gap were merged, and column 3 tells the overlap length.
+Column 2:   	Right contig of a gap
+Column 3 & 4:	Length of sequences extending from the left and right boundaries of a gap
+		If the gap was filled, column 4 is 0, and column 3 is the length of the filling sequence.
+		If column 3 is a negative value, it means the two adjacent contigs flanking the gap were merged, and column 3 tells the overlap length.
 Column 5: 	Status of a gap, 0 or 1
-		 	If the gap was filled, the flag was set to 1, otherwise 0.
+		If the gap was filled, the flag was set to 1, otherwise 0.
 Column 6: 	Current gap size 
-			If the gap was filled, the value is 0.
+		If the gap was filled, the value is 0.
 ```
  
  **statistics.txt** records the statistics of the genome sequence after gap closing. It includes `closed gap number`, classified into `merged gap number` and `filled gap number`. It also includes `total contig length`, `contig N50`, and `scaffold N50`.
 
-###4.5 Command line options
-<style>
-table th:first-of-type {
-    width: 5%;
-}
-table th:nth-of-type(2) {
-    width: 5%;
-}
-table th:nth-of-type(3) {
-    width: 90%;
-}
-</style>
+### 4.5. Command line options
 
 |    Option   | Type  | Description |
 | :----------: |:-------------:| :------------------|
