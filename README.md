@@ -117,7 +117,7 @@ Column 6: 	Current gap size
 
 ### 4.5. Command line options
 
-|    Option   | Type  | Description |
+|      Option     | Type  | Description |
 | :----------: |:-------------:| :------------------|
 |    <code><b>-p</b></code>  | <i><font size=2>STR</font></i> | A formatted file specifying the code path, reads directory, and library information. [Prerequisite]|
 |    <code><b>-d</b></code>  | <i><font size=2>STR</font></i> | Working directory saving intermediate and output files, required.|
