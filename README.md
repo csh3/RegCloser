@@ -27,7 +27,7 @@ The current version requires:
 The firt two can be installed through the [Bioconda](https://bioconda.github.io/) channel. The third one has been included in the software package or you can compile the source code `MultiAlignment_func_python.cpp` on your machine using the following command.
 
 ```
-g++ -fPIC Banded_Alignment.cpp -o Banded_Alignment.so -shared -I/home/miniconda3/include/python3.6m 
+g++ -fPIC MultiAlignment_func_python.cpp -o MultiAlignment_func_python.so -shared -I/home/miniconda3/include/python3.6m 
 # Here /home/miniconda3/include/python3.6m is a directory storing the head file Python.h
 ```
 
@@ -43,7 +43,6 @@ The main program is `RunPipeline.py`, and the pipeline consists of the following
 5. Scaffold		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)
 6. ReEstimateGapSize	Re-estimate gap sizes and their standard deviations in the scaffolds
 7. LocalAssembly 	Assemble gap sequences via the robust regression OLC approach
-
 ```
 
 We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration and perform several times until no more gaps to be filled.
@@ -120,8 +119,8 @@ Column 6: 	Current gap size
 |      Option     | Type  | Description |
 | :----------: | :-------------: | :------------------ |
 |    <code><b>-p</b></code>  | <i><font size=2>STR</font></i> | A formatted file specifying the code path, reads directory, and library information. [Prerequisite]|
-|    <code><b>-d</b></code>  | <i><font size=2>STR</font></i> | Working directory saving intermediate and output files, required.|
 |    <code><b>-g</b></code>  | <i><font size=2>INT</font></i> | Draft genome, required. |
+|    <code><b>-d</b></code>  | <i><font size=2>STR</font></i> | Working directory saving intermediate and output files, required.|
 |    <code><b>-o</b></code>  | <i><font size=2>STR</font></i> | Output file saving gap-closed genome. [output_genome.fasta] |
 |    <code><b>-t</b></code>  | <i><font size=2>INT</font></i> | Number of threads. [1] |
 |    <code><b>-s</b></code>  | <i><font size=2>STR</font></i> | Starting module. [Start] |
