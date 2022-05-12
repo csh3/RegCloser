@@ -119,7 +119,7 @@ Column 6: 	Current gap size
 
 |      Option     | Type  | Description |
 | :----------: | :-------------: | :------------------ |
-|    <code><b>-paaaa</b></code>  | <i><font size=2>STR</font></i> | A formatted file specifying the code path, reads directory, and library information. [Prerequisite]|
+|    <code><b>-p   </b></code>  | <i><font size=2>STR</font></i> | A formatted file specifying the code path, reads directory, and library information. [Prerequisite]|
 |    <code><b>-d</b></code>  | <i><font size=2>STR</font></i> | Working directory saving intermediate and output files, required.|
 |    <code><b>-g</b></code>  | <i><font size=2>INT</font></i> | Draft genome, required. |
 |    <code><b>-o</b></code>  | <i><font size=2>STR</font></i> | Output file saving gap-closed genome. [output_genome.fasta] |
