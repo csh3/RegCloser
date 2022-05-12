@@ -11,8 +11,8 @@ descript="RegCloser is a genome gap-closing tool based on a robust regression OL
 parser = argparse.ArgumentParser(description=descript)
 
 parser.add_argument('-p', type=str, default='prerequisite', help='A formatted file specifying the code path, reads directory, and library information. [Prerequisite]')
-parser.add_argument('-d', required=True, help='Working directory saving intermediate and output files, required.')
 parser.add_argument('-g', required=True, help='Draft genome, required.')
+parser.add_argument('-d', required=True, help='Working directory saving intermediate and output files, required.')
 parser.add_argument('-o', default='output_genome.fasta', help='Output file saving gap-closed genome. [output_genome.fasta]')
 parser.add_argument('-t', type=int, default=1, help='Number of threads. [1]')
 parser.add_argument('-s', default='Start', help='Starting module. [Start]')
