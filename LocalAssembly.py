@@ -188,7 +188,7 @@ def deleteRowsCsr(mat, indices):
 
 
 #####Huber M-estimate of reads coordinates 
-def IRLS(X,Y,W,reads,thr1=2,thr2=3):
+def IRLS(X,Y,W,reads,r1=2,r2=3):
     if Y.shape[0]==0:
         return([], [])
 
@@ -205,14 +205,14 @@ def IRLS(X,Y,W,reads,thr1=2,thr2=3):
     b=t.dot(y).todense()
     estimate, exitCode = sp.linalg.lgmres(A, b, atol=1e-05) #compute ordinary least squares estiamte as initial estimate
     residual=abs((X.dot(sp.csr_matrix(estimate).T)-y).todense()).T.getA()[0]
-    threshold=sp.csr_matrix(np.ones(len(residual))*thr1).dot(W).toarray()[0] #threshold thr1 of Huber's weight function
+    threshold=sp.csr_matrix(np.ones(len(residual))*r1).dot(W).toarray()[0] #threshold r1 of Huber's weight function
     old_estimate=estimate
     n=0
     
     while n<100:
         index=np.where(residual>threshold)[0]
         reweight=np.ones(len(residual))
-        reweight[index]=threshold[index]/residual[index] # update weights for alignments with residuals greater than thr1
+        reweight[index]=threshold[index]/residual[index] # update weights for alignments with residuals greater than r1
         reweight=sp.diags(reweight)
         t=X.T
         A=t.dot(reweight).dot(X)
@@ -227,11 +227,11 @@ def IRLS(X,Y,W,reads,thr1=2,thr2=3):
             old_estimate=estimate
             n+=1
 
-#remove alignments with residuals greater than thr2
+#remove alignments with residuals greater than r2
     residual0=abs((X0.dot(sp.csr_matrix(estimate).T)-sp.csr_matrix(Y0)).todense()).T.getA()[0] 
     G = nx.Graph()
     for i in range(X.shape[0]):
-        if residual0[i]<=thr2:
+        if residual0[i]<=r2:
             n1=X.indices[2*i]
             n2=X.indices[2*i+1]
             G.add_edge(n1,n2)
@@ -479,7 +479,7 @@ def closeGap(gapDic,num,reads,gapSize,gapStd,scale):
     step=max(int(len(reads)/readNum),1)
     reads=reads[0::step]
     design, response, weight=setupRegressionModel(reads, gapStd, scale, ma, mm, gc, ms, ho)
-    estimates_list, reads_list=IRLS(design, response, weight, reads, thr1, thr2)
+    estimates_list, reads_list=IRLS(design, response, weight, reads, r1, r2)
     gapConsensus=integrateConsensus(estimates_list, reads_list)
 
     if 'RL' in gapConsensus:
@@ -708,8 +708,8 @@ parser.add_argument('-gc', type=int, default=30, help='Gap cost in reads pairwis
 parser.add_argument('-ms', type=int, default=20, help='Minimum score to output in reads pairwise alignment. [20]')
 parser.add_argument('-ho', type=int, default=0, help='Maximum admissible hanging-out length in reads pairwise alignment. [0]')
 parser.add_argument('-w', action="store_true", help='Assign initial weights for pairwise alignments in robust regression OLC. [null]')
-parser.add_argument('-thr1', type=float, default=2, help='Tuning constant of weight function in IRLS algorithm. [2]')
-parser.add_argument('-thr2', type=float, default=3, help='Excluding samples with residuals greater than thr2 after IRLS algorithm. [3]')
+parser.add_argument('-r1', type=float, default=2, help='Tuning constant of weight function in IRLS algorithm. [2]')
+parser.add_argument('-r2', type=float, default=3, help='Excluding samples with residuals greater than this value after IRLS algorithm. [3]')
 parser.add_argument('-mA', type=int, default=1, help='Matching score in alignment merging adjacent contigs. [1]')
 parser.add_argument('-mM', type=int, default=2, help='Mismatch penalty in alignment merging adjacent contigs. [2]')
 parser.add_argument('-mG', type=int, default=3, help='Gap cost in alignment merging adjacent contigs. [3]')
@@ -723,8 +723,8 @@ Length = args.l
 rc = args.rc
 qc = args.qc
 S = args.S
-thr1 = args.thr1
-thr2 = args.thr2
+r1 = args.r1
+r2 = args.r2
 ma = args.ma
 mm = args.mm
 gc = args.gc
