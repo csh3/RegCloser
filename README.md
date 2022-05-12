@@ -13,6 +13,8 @@ You can download the software package by the command:
 git clone https://github.com/csh3/RegCloser.git
 ```
 
+or click the **Download Zip** button and decompress the software package.
+
 ## 3. Dependencies
 The current version requires:
 
