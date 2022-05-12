@@ -40,8 +40,8 @@ parser.add_argument('-gc', type=int, default=30, help='Gap cost in reads pairwis
 parser.add_argument('-ms', type=int, default=20, help='Minimum score to output in reads pairwise alignment. [20]')
 parser.add_argument('-ho', type=int, default=0, help='Maximum admissible hanging-out length in reads pairwise alignment. [0]')
 parser.add_argument('-w', action="store_true", help='Assign initial weights for pairwise alignments in robust regression OLC. [null]')
-parser.add_argument('-thr1', type=float, default=2, help='Tuning constant of weight function in IRLS algorithm. [2]')
-parser.add_argument('-thr2', type=float, default=3, help='Excluding samples with residuals greater than thr2 after IRLS algorithm. [3]')
+parser.add_argument('-r1', type=float, default=2, help='Tuning constant of weight function in IRLS algorithm. [2]')
+parser.add_argument('-r2', type=float, default=3, help='Excluding samples with residuals greater than this value after IRLS algorithm. [3]')
 parser.add_argument('-mA', type=int, default=1, help='Matching score in alignment merging adjacent contigs. [1]')
 parser.add_argument('-mM', type=int, default=2, help='Mismatch penalty in alignment merging adjacent contigs. [2]')
 parser.add_argument('-mG', type=int, default=3, help='Gap cost in alignment merging adjacent contigs. [3]')
@@ -139,9 +139,9 @@ if(args.s=="LocalAssembly" or progress_running == 1):
 	print("\n--------------------------------------\nLocalAssembly running.\n")
 	#os.system("cp Banded_Alignment.so %s"%args.d)
 	if args.w:
-		os.system("cd %s; python %s/LocalAssembly.py -w -t %d -l %d -rc %d -S %f -qc %f -thr1 %f -thr2 %f -ma %d -mm %d -gc %d -ms %d -ho %d -mA %d -mM %d -mG %d -mS %d -HO %d -o %s > LocalAssembly.log 2>&1"%(args.d, path, args.t, args.l, args.rc, args.S, args.qc, args.thr1, args.thr2, args.ma, args.mm, args.gc, args.ms, args.ho, args.mA, args.mM, args.mG, args.mS, args.HO, args.o))
+		os.system("cd %s; python %s/LocalAssembly.py -w -t %d -l %d -rc %d -S %f -qc %f -r1 %f -r2 %f -ma %d -mm %d -gc %d -ms %d -ho %d -mA %d -mM %d -mG %d -mS %d -HO %d -o %s > LocalAssembly.log 2>&1"%(args.d, path, args.t, args.l, args.rc, args.S, args.qc, args.r1, args.r2, args.ma, args.mm, args.gc, args.ms, args.ho, args.mA, args.mM, args.mG, args.mS, args.HO, args.o))
 	else:
-		os.system("cd %s; python %s/LocalAssembly.py -t %d -l %d -rc %d -S %f -qc %f -thr1 %f -thr2 %f -ma %d -mm %d -gc %d -ms %d -ho %d -mA %d -mM %d -mG %d -mS %d -HO %d -o %s > LocalAssembly.log 2>&1"%(args.d, path, args.t, args.l, args.rc, args.S, args.qc, args.thr1, args.thr2, args.ma, args.mm, args.gc, args.ms, args.ho, args.mA, args.mM, args.mG, args.mS, args.HO, args.o))
+		os.system("cd %s; python %s/LocalAssembly.py -t %d -l %d -rc %d -S %f -qc %f -r1 %f -r2 %f -ma %d -mm %d -gc %d -ms %d -ho %d -mA %d -mM %d -mG %d -mS %d -HO %d -o %s > LocalAssembly.log 2>&1"%(args.d, path, args.t, args.l, args.rc, args.S, args.qc, args.r1, args.r2, args.ma, args.mm, args.gc, args.ms, args.ho, args.mA, args.mM, args.mG, args.mS, args.HO, args.o))
 if(args.e=="LocalAssembly"):
 	progress_running = 0
 
