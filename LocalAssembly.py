@@ -214,9 +214,7 @@ def IRLS(X,Y,W,reads,r1=2,r2=3):
         reweight=np.ones(len(residual))
         reweight[index]=threshold[index]/residual[index] # update weights for alignments with residuals greater than r1
         reweight=sp.diags(reweight)
-        t=X.T
         A=t.dot(reweight).dot(X)
-        y=sp.csr_matrix(Y)
         b=t.dot(reweight).dot(y).todense()
         estimate, exitCode = sp.linalg.lgmres(A, b, atol=1e-05) #compute weighted least squares estimate
         residual=abs((X.dot(sp.csr_matrix(estimate).T)-y).todense()).T.getA()[0]
