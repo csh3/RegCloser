@@ -45,7 +45,7 @@ The main program is `RunPipeline.py`, and the pipeline consists of the following
 7. LocalAssembly 	Assemble gap sequences via the robust regression OLC approach
 ```
 
-We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration and perform several times until no more gaps to be filled.
+We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration, and perform several times until no more gaps to be filled.
 
 ### 4.2. Prerequisite file
 
