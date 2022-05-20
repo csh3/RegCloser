@@ -96,7 +96,7 @@ The intermediate and output files are saved under the directory specified by the
 
 **output_genome.fasta** saves the output genome sequence with gaps closed by *RegCloser*. You can specify the filename using option `-o` according to your preference.
 
-**gapSequence.fastq** saves the assembled sequences in the gap regions and their Phred quality scores (ASCII_BASE 33). Note that the contig end sequences are included. The identifier of each sequence records the gap it comes from. For example, *@contig1\_contig2\_filled* means the sequence filled the gap between *contig1* and contig2; *@contig2\_contig3\_left* means the sequence extended from the left boundary of the gap between *contig2* and *contig3*; *@contig3\_contig4\_right* means the sequence extended from the right boundary of the gap between *contig3* and *contig4*.
+**gapSequence.fastq** saves the assembled sequences in the gap regions and their Phred quality scores (ASCII_BASE 33). The identifier of each sequence records the gap it comes from. For example, *@contig1\_contig2\_filled* means the sequence filled the gap between *contig1* and contig2; *@contig2\_contig3\_left* means the sequence extended from the left boundary of the gap between *contig2* and *contig3*; *@contig3\_contig4\_right* means the sequence extended from the right boundary of the gap between *contig3* and *contig4*.
  
 **evidence.fill** records the information of the gaps in the output genome. Each line describes one gap and contains 6 columns.
  
