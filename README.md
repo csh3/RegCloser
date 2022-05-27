@@ -71,7 +71,7 @@ Column 7: 	Whether the libary is used for local assembly or making tab files, 1,
 		1 stands for only local assembly, 2 stands for only making tab files, and 3 for both.
 ```
 
-### 4.3. Simple Running
+### 4.3. Basic usage
 Run with 40 threads
 
 ```
