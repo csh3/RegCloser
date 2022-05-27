@@ -64,11 +64,11 @@ Column 1: 	Name of the library
 Column 2 & 3: 	Fastq files for both ends
 		For each paired reads, one of the reads should be in the first file, and the other one in the second file. The paired reads are required to be on the same line.
 Column 4:	Average insert size between paired reads
-Column 5: 	Standard deviation of insert size between paired reads.
+Column 5: 	Standard deviation of insert size between paired reads
 Column 6: 	Orientation of paired reads, FR or RF
 		F stands for --> orientation, and R for <-- orientation. Paired-end libraries are FR, and mate-pair libraries are RF.
-Column 7: 	Whether the libary is used for local assembly, Y or N
-		Y stands for YES, and N stands for NO that the library is only used to generate scaffolds and re-estimate gap sizes.
+Column 7: 	Whether the libary is used for local assembly or making tab files, 1, 2, or 3
+		1 stands for only local assembly, 2 stands for only making tab files, and 3 for both.
 ```
 
 ### 4.3. Simple Running
