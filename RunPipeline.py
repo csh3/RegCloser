@@ -121,7 +121,7 @@ if args.rs and (args.s=="Scaffold" or progress_running == 1):
 	os.system("cd %s; bash ./SSPACE.sh >> Scaffold.log 2>&1"%args.d)
 if (not args.rs) and (args.s=="Scaffold" or progress_running == 1):
 	progress_running = 1
-	os.system("cd %s; mv evidence_ini.txt evidence.txt"%args.d)	
+	os.system("cd %s; cp evidence_ini.txt evidence.txt"%args.d)	
 if(args.e=="Scaffold"):
 	progress_running = 0
 
