@@ -165,7 +165,7 @@ for gap in FinalGap_dict:
 		if gap in Gap_dict:
 			gap_list +=Gap_dict[gap]
 			sdsum +=len(Gap_dict[gap])*(library_info[libname]['std'])**2
-	if len(gap_list)>0:
+	if len(gap_list)>10:
 		final_median = np.median(gap_list)
 		sd = np.sqrt(sdsum)/len(gap_list)
 		FinalGap_dict[gap] = (int(final_median),int(sd))
