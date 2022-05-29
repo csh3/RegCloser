@@ -150,7 +150,7 @@ def setupRegressionModel(reads, gapStd, scale, alignment_score = 1, mismatch = 2
                 score=0
                 for aligned in alignments:
                     diff=((l2-aligned[5])-(l1-aligned[3]))-(reads[j]['location']-reads[i]['location'])
-                    if abs(diff)<minDiff and min(l2-aligned[5],l1-aligned[3])<=hangingOut and min(aligned[4]-1,aligned[2]-1)<=hangingOut:
+                    if abs(diff)<minDiff and aligned[0]>=minscore and min(l2-aligned[5],l1-aligned[3])<=hangingOut and min(aligned[4]-1,aligned[2]-1)<=hangingOut:
                         score=aligned[0]
                         start_i=aligned[2]
                         end_i=aligned[3]
