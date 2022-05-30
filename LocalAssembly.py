@@ -340,15 +340,15 @@ def generateConsensus(reads, estimates):
             continue
         alignments = MultiAlignment_func_python.MultiOptimal_merge_alignment(ref,query,1,2,3,3)
         score=0
-        # diff=float('inf')
+        minDiff=float('inf')
         for aligned in alignments:
-            if aligned[0]>=20 and len(aligned[1])>=20 and abs(startPoint+aligned[3]+len(query)-aligned[5]-coordinate)<=adjust:
+            if aligned[0]>=20 and len(aligned[1])>=20 and abs(startPoint+aligned[3]+len(query)-aligned[5]-coordinate)<=min(adjust, minDiff):
                 score=aligned[0]
                 start1=aligned[2]
                 end1=aligned[3]
                 start2=aligned[4]
                 end2=aligned[5]
-                # diff=abs(startPoint+end1+len(query)-end2-coordinate)
+                minDiff=abs(startPoint+end1+len(query)-end2-coordinate)
                 # hoL=min(aligned[2]-1, aligned[4]-1)
                 # hoR=min(len(ref)-aligned[3], len(query)-aligned[5])
         if score>=20:
