@@ -12,7 +12,6 @@ from Bio.Seq import Seq
 from Bio import SeqIO
 from Bio import Align
 import math
-import re
 
 
 def importContigs():
@@ -788,7 +787,7 @@ def writeResults(scaffold_dic, alignment_score = 1, mismatch = 2, gap_cost = 5, 
 
 
 #读入参数：库长标准差、比对参数、线程数、WLS的残差取舍参数、consensus的base占优比例参数
-parser = argparse.ArgumentParser(description="Do local OLC by iterative regression.") 
+parser = argparse.ArgumentParser(description="Local assembly using the robust regression OLC approach.") 
 
 parser.add_argument('-o', default='output_genome.fasta', help='Output file saving gap-closed genome. [output_genome.fasta]')
 parser.add_argument('-t', type=int, default=1, help='Number of threads. [1]')
