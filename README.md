@@ -40,7 +40,7 @@ The main program is `RunPipeline.py`, and the pipeline consists of the following
 3. HighDepth		Identify high depth regions in the contig ends (optional)
 4. CollectReads		Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
 5. Scaffold		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)
-6. ReEstimateGapSize	Re-estimate gap sizes and their standard deviations in the scaffolds
+6. ReEstimateGapSize	Re-estimate gap sizes in the scaffolds
 7. LocalAssembly 	Assemble gap sequences via the robust regression OLC approach
 ```
 
@@ -53,8 +53,8 @@ A prerequisite file is needed to specify the path of software package and the di
 ```
 Code_path: /home/RegCloser
 Reads_directory: /home/E.coli/reads
-frag		frag_1.fastq		frag_2.fastq		300     20     FR    Y
-shortjump	shortjump_1.fastq	shortjump_2.fastq	3600    298    RF    Y
+frag		frag_1.fastq		frag_2.fastq		300     20     FR    1
+shortjump	shortjump_1.fastq	shortjump_2.fastq	3600    298    RF    2
 ```
 The first line specifies the code path, and the second line specifies the reads directory. From the third line, each line describes one reads library and contains 7 columns, separated by spaces or tabs. Each column is explained in more detail below.
 
