@@ -1,0 +1,8 @@
+Code_path: /home/RegCloser
+Reads_directory: /home/reads
+300	lib3001.fq	lib3002.fq	300	20	FR	3
+500	lib5001.fq	lib5002.fq	500	30	FR	3
+800	lib8001.fq	lib8002.fq	800	50	FR	3
+2k	lib2k1.fq	lib2k2.fq	2000	200	RF	3
+5k	lib5k1.fq	lib5k2.fq	5000	300	RF	3
+10k	lib10k1.fq	lib10k2.fq	10000	500	RF	2
