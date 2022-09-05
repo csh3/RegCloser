@@ -31,6 +31,8 @@ g++ -fPIC MultiAlignment_func_python.cpp -o MultiAlignment_func_python.so -share
 # Here /home/miniconda3/include/python3.6m is a directory storing the head file Python.h
 ```
 
+The fourth one can be obtained on request from [BASECLEAR](https://www.baseclear.com/genomics/bioinformatics/).
+
 ## 4. Usage
 ### 4.1. Pipeline
 The main program is `RunPipeline.py`, and the pipeline consists of the following 7 modules. You can start or end with any one module by the option `-s` or `-e`.
