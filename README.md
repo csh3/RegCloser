@@ -22,7 +22,7 @@ The current version requires:
 
 2. `BWA (version 0.7.17)`
 3. `MultiAlignment_func_python.so`
-4. `SSPACE_Standard_v3.0`
+4. `SSPACE_Standard_v3.0 (optional)`
 
 The firt two can be installed through the [Bioconda](https://bioconda.github.io/) channel. The third one has been included in the software package or you can compile the source code `MultiAlignment_func_python.cpp` on your machine using the following command.
 
