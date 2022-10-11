@@ -3,7 +3,7 @@ Copyright © 2022, Shenghao Cao, Mengtian Li & Lei M. Li. Academy of Mathematics
 # RegCloser
 
 ## 1. Introduction
-RegCloser is a genome gap-closing tool using paired sequence reads. It closes gaps via local assembly of reads in the gap regions. It first performs pairwise alignment on reads guided by the prior distance information inferred from insert size. Then it adopts a two-step robust regression procedure to generate a reliable layout. In Step 1, it minimizes a convex global Huber loss function and then identifies outliers. In Step 2, it excludes the identified outliers and calculates the trimmed least squares estimate. RegCloser works well in resolving tandem repeats.
+RegCloser is a genome gap-closing tool using paired sequence reads. It closes gaps via local assembly of reads in the gap regions. It first performs pairwise alignment on reads guided by the prior distance information inferred from insert size. Then it adopts a two-step robust regression to generate a reliable layout. In Step 1, it minimizes a convex global Huber loss function and then identifies false overlaps. In Step 2, it excludes the identified false overlaps and then calculates the trimmed least squares estimate of the reads' genomic positions. RegCloser works well in resolving tandem repeats.
 
 ## 2. Installation
 You can download the software package by the command:
