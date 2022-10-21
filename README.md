@@ -151,7 +151,7 @@ Column 6: 	Current gap size
 |    <code><b>-ho</b></code>  | <i><font size=2>INT</font></i> | Maximum admissible hanging-out length in reads pairwise alignment. [0] |
 |    <code><b>-w</b></code>  | | Assign initial weights for pairwise alignments in robust regression OLC. [null] |
 |    <code><b>-r1 </b></code>  | <i><font size=2>FLOAT</font></i> | Tuning constant of weight function in IRLS algorithm. [2] |
-|    <code><b>-r2 </b></code>  | <i><font size=2>FLOAT</font></i> | Excluding samples with residuals greater than this value after IRLS algorithm. [3] |
+|    <code><b>-r2 </b></code>  | <i><font size=2>FLOAT</font></i> | Excluding samples with residuals greater than this value after IRLS algorithm. [10] |
 |    <code><b>-mT</b></code>  | <i><font size=2>INT</font></i> | Maximum truncated length for alignment merging adjacent contigs. [1000] |
 |    <code><b>-mA</b></code>  | <i><font size=2>INT</font></i> | Matching score in alignment merging adjacent contigs. [1] |
 |    <code><b>-mM</b></code>  | <i><font size=2>INT</font></i> | Mismatch penalty in alignment merging adjacent contigs. [2] |
