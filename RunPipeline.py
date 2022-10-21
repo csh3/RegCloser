@@ -41,7 +41,7 @@ parser.add_argument('-ms', type=int, default=20, help='Minimum score to output i
 parser.add_argument('-ho', type=int, default=0, help='Maximum admissible hanging-out length in reads pairwise alignment. [0]')
 parser.add_argument('-w', action="store_true", help='Assign initial weights for pairwise alignments in robust regression OLC. [null]')
 parser.add_argument('-r1', type=float, default=2, help='Tuning constant of weight function in IRLS algorithm. [2]')
-parser.add_argument('-r2', type=float, default=3, help='Excluding samples with residuals greater than this value after IRLS algorithm. [3]')
+parser.add_argument('-r2', type=float, default=10, help='Excluding samples with residuals greater than this value after IRLS algorithm. [10]')
 parser.add_argument('-mT', type=int, default=1000, help='Maximum truncated length for alignment merging adjacent contigs. [1000]')
 parser.add_argument('-mA', type=int, default=1, help='Matching score in alignment merging adjacent contigs. [1]')
 parser.add_argument('-mM', type=int, default=2, help='Mismatch penalty in alignment merging adjacent contigs. [2]')
