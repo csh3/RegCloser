@@ -143,7 +143,7 @@ Column 6: 	Current gap size
 |    <code><b>-qc</b></code>  | <i><font size=2>FLOAT</font></i> | Maximum expected erroneous bases in the read used for local assembly. [100] |
 |    <code><b>-l</b></code>  | <i><font size=2>INT</font></i> | Length of the contig end sequence cut out for local assembly. [100] |
 |    <code><b>-rc</b></code>  | <i><font size=2>INT</font></i> | Coverage of reads used for local assembly. [100] |
-|    <code><b>-S</b></code>  | <i><font size=2>FLOAT</font></i> | Scale for standard deviations of priori distance between reads. [1] |
+|    <code><b>-S</b></code>  | <i><font size=2>FLOAT</font></i> | Scale for standard deviations of prior distances between reads. [1] |
 |    <code><b>-ma</b></code>  | <i><font size=2>INT</font></i> | Matching score in reads pairwise alignment. [1] |
 |    <code><b>-mm</b></code>  | <i><font size=2>INT</font></i> | Mismatch penalty in reads pairwise alignment. [20] |
 |    <code><b>-gc</b></code>  | <i><font size=2>INT</font></i> | Gap cost in reads pairwise alignment. [30] |
