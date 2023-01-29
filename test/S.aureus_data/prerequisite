@@ -1,0 +1,4 @@
+Code_path: /home/RegCloser
+reads_directory: /home/RegCloser/S.aureus_data/reads
+415	415_1.fq	415_2.fq	415	105	FR	1
+shortjump	shortjump_1.fq	shortjump_2.fq	3600	298	RF	2
