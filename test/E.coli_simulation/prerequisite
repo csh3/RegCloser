@@ -1,5 +1,5 @@
-Code_path: /home/RegCloser
-Reads_directory: /home/RegCloser/E.coli_simulation/reads
+Code_path: ~/RegCloser
+Reads_directory: ~/RegCloser/E.coli_simulation/reads
 300	lib3001.fq	lib3002.fq	300	20	FR	3
 500	lib5001.fq	lib5002.fq	500	30	FR	3
 800	lib8001.fq	lib8002.fq	800	50	FR	3
