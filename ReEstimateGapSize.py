@@ -95,7 +95,6 @@ descript="This program re-estimate gap sizes based on tabfiles.\n"
 
 parser = argparse.ArgumentParser(description=descript)
 
-parser.add_argument('-p', type=str, default='../prerequisite', help='A formatted file specifying the code path, reads directory, and library information. [Prerequisite]')
 parser.add_argument('-sd', type=int, default=100, help="Default standard deviation of gap size. [100]")
 args = parser.parse_args()
 
@@ -103,7 +102,7 @@ args = parser.parse_args()
 #libmean = args.m
 contigLength_dict = GetContigLen()
 library_info={}
-with open(args.p,'r') as fin: #'prerequisite'
+with open('prerequisite','r') as fin: #'prerequisite'
 	longest_ins = 100
 	longest_lib = ' '
 	for line in fin:
