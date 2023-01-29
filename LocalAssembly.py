@@ -842,7 +842,7 @@ parser.add_argument('-qc', type=float, default=100, help='Maximum expected erron
 parser.add_argument('-l', type=int, default=100, help='Length of the contig end sequence cut out for local assembly. [100]')
 parser.add_argument('-rc', type=int, default=100, help='Maximum coverage of reads used for local assembly. [100]')
 parser.add_argument('-rn', type=int, default=2000, help='Maximum number of reads used for local assembly. [2000]')
-parser.add_argument('-S', type=float, default=1, help='Scale for standard deviations of priori distance between reads. [1]')
+parser.add_argument('-S', type=float, default=0.3, help='Threshold for selective pairwise alignment. [0.3]')
 parser.add_argument('-ma', type=int, default=1, help='Matching score in reads pairwise alignment. [1]')
 parser.add_argument('-mm', type=int, default=20, help='Mismatch penalty in reads pairwise alignment. [20]')
 parser.add_argument('-gc', type=int, default=30, help='Gap cost in reads pairwise alignment. [30]')

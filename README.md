@@ -1,9 +1,9 @@
-Copyright © 2022, Shenghao Cao, Mengtian Li & Lei M. Li. Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China
+Copyright © 2023, Shenghao Cao, Mengtian Li & Lei M. Li. Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China
 
 # RegCloser
 
 ## 1. Introduction
-RegCloser is a genome gap-closing tool using paired sequence reads. It closes gaps via local assembly of reads in the gap regions. It first performs pairwise alignment on reads guided by the prior distance information inferred from insert size. Then it adopts a two-step robust regression to generate a reliable layout. In Step 1, it minimizes a convex global Huber loss function and identifies false overlaps. In Step 2, it excludes the identified false overlaps and calculates the trimmed least squares estimate of the reads' genomic positions. RegCloser works well in resolving tandem repeats.
+RegCloser is a genome gap-closing tool using paired sequence reads. It closes gaps via local assembly of reads in the gap regions. It first performs pairwise alignment on reads guided by the prior distance information inferred from the insert size. Then it adopts a two-step robust regression to generate a reliable layout. In Step 1, it minimizes a convex global Huber loss function and identifies false overlaps. In Step 2, it excludes the identified false overlaps and calculates the trimmed least squares estimate of the reads' genomic positions. RegCloser works well in resolving tandem repeats.
 
 ## 2. Installation
 You can download the software package by the command:
@@ -22,7 +22,6 @@ The current version requires:
 
 2. `BWA (version 0.7.17)`
 3. `MultiAlignment_func_python.so`
-4. `SSPACE_Standard_v3.0` (optional)
 
 The firt two can be installed through the [Bioconda](https://bioconda.github.io/) channel. The third one has been included in the software package or you can compile the source code `MultiAlignment_func_python.cpp` on your machine using the following command.
 
@@ -31,20 +30,18 @@ g++ -fPIC MultiAlignment_func_python.cpp -o MultiAlignment_func_python.so -share
 # Here /home/miniconda3/include/python3.6m is a directory storing the head file Python.h
 ```
 
-The fourth one can be obtained on request from [BASECLEAR](https://www.baseclear.com/genomics/bioinformatics/).
-
 ## 4. Usage
 ### 4.1. Pipeline
-The main program is `RunPipeline.py`, and the pipeline consists of the following 7 modules. You can start or end with any one module by the option `-s` or `-e`.
+The main program is `RunPipeline.py`, and the pipeline consists of the following 7 modules. You can start or end with any one module by the option `-s` or `-e`. The core innovation of our method lies in the module `LocalAssembly` that uses the robust regression model and algorithm to assemble short reads into contigs.
 
 ```
-1. InitialContig	Break the draft genome into contigs
-2. Mapping 		Map sequence reads to the draft genome using BWA and identify anchored reads
-3. HighDepth		Identify high depth regions in the contig ends (optional)
-4. CollectReads		Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
-5. Scaffold		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0 (optional)
-6. ReEstimateGapSize	Re-estimate gap sizes in the scaffolds
-7. LocalAssembly 	Assemble gap sequences via the robust regression OLC approach
+1. InitialContig			Break the draft genome into contigs
+2. Mapping 		    		Map sequence reads to the draft genome using BWA and identify anchored reads
+3. HighDepth (optional)		Identify high depth regions in the contig ends
+4. CollectReads				Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
+5. Re-Scaffold (optional) 	Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
+6. ReEstimateGapSize		Re-estimate gap sizes between contigs
+7. LocalAssembly 			Assemble gap sequences via the robust regression approach
 ```
 
 We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration, and perform several times until no more gaps to be filled.
@@ -149,7 +146,7 @@ Column 6: 	Current gap size
 |    <code><b>-gc</b></code>  | <i><font size=2>INT</font></i> | Gap cost in reads pairwise alignment. [30] |
 |    <code><b>-ms</b></code>  | <i><font size=2>INT</font></i> | Minimum score to output in reads pairwise alignment. [20] |
 |    <code><b>-ho</b></code>  | <i><font size=2>INT</font></i> | Maximum admissible hanging-out length in reads pairwise alignment. [0] |
-|    <code><b>-w</b></code>  | | Assign initial weights for pairwise alignments in robust regression OLC. [null] |
+|    <code><b>-w</b></code>  | | Assign initial weights for detected overlaps. [null] |
 |    <code><b>-r1 </b></code>  | <i><font size=2>FLOAT</font></i> | Tuning constant of weight function in IRLS algorithm. [2] |
 |    <code><b>-r2 </b></code>  | <i><font size=2>FLOAT</font></i> | Excluding samples with residuals greater than this value after IRLS algorithm. [10] |
 |    <code><b>-mT</b></code>  | <i><font size=2>INT</font></i> | Maximum truncated length for alignment merging adjacent contigs. [1000] |
