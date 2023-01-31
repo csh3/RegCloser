@@ -41,7 +41,7 @@ The main program is `RunPipeline.py`, and the pipeline consists of the following
 4. CollectReads			Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
 5. Re-Scaffold (optional) 	Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
 6. ReEstimateGapSize		Re-estimate gap sizes between contigs
-7. LocalAssembly 		Assemble gap sequences via the robust regression approach
+7. LocalAssembly 		Assemble the collected reads into contigs for gap closing via the robust regression approach
 ```
 
 We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration, and perform several times until no more gaps to be filled.
