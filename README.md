@@ -37,10 +37,10 @@ The main program is `RunPipeline.py`, and the pipeline consists of the following
 ```
 1. InitialContig			Break the draft genome into contigs
 2. Mapping 		    		Map sequence reads to the draft genome using BWA and identify anchored reads
-3. HighDepth (optional)		Identify high depth regions in the contig ends
+3. HighDepth (optional)			Identify high depth regions in the contig ends
 4. CollectReads				Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
-5. Re-Scaffold (optional) 	Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
-6. ReEstimateGapSize		Re-estimate gap sizes between contigs
+5. Re-Scaffold (optional) 		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
+6. ReEstimateGapSize			Re-estimate gap sizes between contigs
 7. LocalAssembly 			Assemble gap sequences via the robust regression approach
 ```
 
