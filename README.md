@@ -35,13 +35,13 @@ g++ -fPIC MultiAlignment_func_python.cpp -o MultiAlignment_func_python.so -share
 The main program is `RunPipeline.py`, and the pipeline consists of the following 7 modules. You can start or end with any one module by the option `-s` or `-e`. The core innovation of our method lies in the module `LocalAssembly` that uses the robust regression model and algorithm to assemble short reads into contigs.
 
 ```
-1. InitialContig			Break the draft genome into contigs
-2. Mapping 		    		Map sequence reads to the draft genome using BWA and identify anchored reads
-3. HighDepth (optional)			Identify high depth regions in the contig ends
-4. CollectReads				Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
-5. Re-Scaffold (optional) 		Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
-6. ReEstimateGapSize			Re-estimate gap sizes between contigs
-7. LocalAssembly 			Assemble gap sequences via the robust regression approach
+1. InitialContig		Break the draft genome into contigs
+2. Mapping 		    	Map sequence reads to the draft genome using BWA and identify anchored reads
+3. HighDepth (optional)		Identify high depth regions in the contig ends
+4. CollectReads			Collect reads in the gap regions for local assembly and make tab files of linking information between contigs 	
+5. Re-Scaffold (optional) 	Generate new scaffolds from initial contigs using SSPACE_Standard_v3.0
+6. ReEstimateGapSize		Re-estimate gap sizes between contigs
+7. LocalAssembly 		Assemble gap sequences via the robust regression approach
 ```
 
 We recommend to use *RegCloser* in an iterative way that you can take the output genome as the input of the next iteration, and perform several times until no more gaps to be filled.
