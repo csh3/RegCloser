@@ -3,7 +3,13 @@ Copyright © 2023, Shenghao Cao, Mengtian Li & Lei M. Li. Academy of Mathematics
 # RegCloser
 
 ## 1. Introduction
-RegCloser is a genome gap-closing tool using paired sequence reads. It closes gaps via local assembly of reads in the gap regions. It first performs pairwise alignment on reads guided by the prior distance information inferred from the insert size. Then it adopts a two-step robust regression to generate a reliable layout. In Step 1, it minimizes a convex global Huber loss function and identifies false overlaps. In Step 2, it excludes the identified false overlaps and calculates the trimmed least squares estimate of the reads' genomic positions. RegCloser works well in resolving tandem repeats.
+The novel robust regression framework proposed in RegClosure is a general approach to DNA sequence assembly. It is applicable to both NGS and TGS data. In combination with any scaffolding methods, it can be used as a genome gap-closing tool. In the OLC paradigm of de novo assembly, the existing methods find a layout of reads by greedy search. In contrast, the robust regression approach generates a global optimal layout, which is the minimizer of a convex loss function.
+
+RegClosure can currently be used or tested in the following scenarios.
+
+* Improve genome N50 by existing NGS libraries.
+* De novo genome assembly of microbial genomes by NGS technology with high fidelity.
+* Generate a global optimal layout in the de novo assembly of TGS data. 
 
 ## 2. Installation
 You can download the software package by the command:
