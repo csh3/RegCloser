@@ -135,6 +135,7 @@ if(args.e=="ReEstimateGapSize"):
 if(args.s=="LocalAssembly" or progress_running == 1):
     progress_running = 1
     print("\n--------------------------------------\nPhrap running.\n")
+    os.system("cp %s/phrap %s"%(path, args.d))
     os.system("cd %s; python %s/LocalAssembly_phrap.py -t %d -rc %d -rn %d -qc %f -mT %d -mA %d -mM %d -mG %d -mS %d -HO %d -o %s > LocalAssembly.log 2>&1"%(args.d, path, args.t, args.rc, maxReadNum, args.qc, args.mT, args.mA, args.mM, args.mG, args.mS, args.HO, args.o))
 if(args.e=="LocalAssembly"):
     progress_running = 0

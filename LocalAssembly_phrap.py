@@ -130,7 +130,7 @@ def runPhrap(gapDic,num,reads,gapSize,gapStd,seqL,seqR):
         for r in reads:
             fout.write('>%s\n'%r['name'])
             fout.write('%s\n'%r['seq'])
-    os.system('cd phrap; ~/phrap/phrap -penalty -20 -gap_init -10 -gap_ext -5 -minmatch 10 -bandwidth 0 -minscore 20 -forcelevel 0 -bypasslevel 0 -revise_greedy -force_high -node_space 2 -confirm_penalty -10 -confirm_score 30 reads%d.fasta -ace > /dev/null 2>&1'%num)
+    os.system('cd phrap; ../phrap -penalty -20 -gap_init -10 -gap_ext -5 -minmatch 10 -bandwidth 0 -minscore 20 -forcelevel 0 -bypasslevel 0 -revise_greedy -force_high -node_space 2 -confirm_penalty -10 -confirm_score 30 reads%d.fasta -ace > /dev/null 2>&1'%num)
 
     contigs=[]
     for seq_record in SeqIO.parse('phrap/reads%d.fasta.contigs'%num, 'fasta'):
