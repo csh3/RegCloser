@@ -126,17 +126,17 @@ def runPhrap(gapDic,num,reads,gapSize,gapStd,seqL,seqR):
     step=max(round(len(reads)/min(readNum,rn)),1)
     reads=reads[0::step]
 
-    with open('phrap/reads%d.fasta'%num,'w') as fout:
+    with open('phraps/reads%d.fasta'%num,'w') as fout:
         for r in reads:
             fout.write('>%s\n'%r['name'])
             fout.write('%s\n'%r['seq'])
-    os.system('cd phrap; ../phrap -penalty -20 -gap_init -10 -gap_ext -5 -minmatch 10 -bandwidth 0 -minscore 20 -forcelevel 0 -bypasslevel 0 -revise_greedy -force_high -node_space 2 -confirm_penalty -10 -confirm_score 30 reads%d.fasta -ace > /dev/null 2>&1'%num)
+    os.system('cd phraps; ../phrap -penalty -20 -gap_init -10 -gap_ext -5 -minmatch 10 -bandwidth 0 -minscore 20 -forcelevel 0 -bypasslevel 0 -revise_greedy -force_high -node_space 2 -confirm_penalty -10 -confirm_score 30 reads%d.fasta -ace > /dev/null 2>&1'%num)
 
     contigs=[]
-    for seq_record in SeqIO.parse('phrap/reads%d.fasta.contigs'%num, 'fasta'):
+    for seq_record in SeqIO.parse('phraps/reads%d.fasta.contigs'%num, 'fasta'):
         contigs.append(str(seq_record.seq).upper())
         contigs.append(str(seq_record.seq.reverse_complement()).upper())
-    # os.system('cd phrap; rm reads%d.fasta*'%num)
+    # os.system('cd phraps; rm reads%d.fasta*'%num)
 
     endLenL=min(100,len(seqL))
     endLenR=min(100,len(seqR))
@@ -378,7 +378,7 @@ scaffold_dic=importEvidence()
 
 importReads(scaffold_dic)
 
-os.system('rm -rf phrap; mkdir phrap')
+os.system('rm -rf phraps; mkdir phraps')
 
 m=Manager()
 gapDic=m.dict()
