@@ -7,8 +7,8 @@ The novel robust regression framework proposed in RegCloser is a general approac
 
 RegCloser can currently be used or tested in the following scenarios:
 
-* Improve genome N50 by low-cost and accurate NGS libraries (a small genome example is in `test/S.aureus_data`), and is scalable to large genomes.
-* Reconstruct complete and accurate microbial genomes by NGS data (an example is in `test/E.coli_simulation`).
+* Improve genome N50 by NGS libraries (a small genome example is in `test/S.aureus_data`), and is scalable to large genomes.
+* Reconstruct complete and accurate microbial genomes by low-cost and accurate NGS data (an example is in `test/E.coli_simulation`).
 * Generate a globally optimal layout in the de novo assembly of TGS data (an example is in `test/E.coli_long_reads`).
 
 ## 2. Installation
