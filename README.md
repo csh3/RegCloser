@@ -3,7 +3,7 @@ Copyright © 2023, Shenghao Cao, Mengtian Li & Lei M. Li. Academy of Mathematics
 # RegCloser
 
 ## 1. Introduction
-The novel robust regression framework proposed in RegClosure is a general approach to DNA sequence assembly. It is applicable to both NGS and TGS data. In combination with any scaffolding methods, it can be used as a genome gap-closing tool. In the OLC paradigm of de novo assembly, the existing methods find a layout of reads by greedy search. In contrast, the robust regression approach generates a global optimal layout, which is the minimizer of a convex loss function.
+The novel robust regression framework proposed in RegCloser is a general approach to DNA sequence assembly. It is applicable to both NGS and TGS data. In combination with any scaffolding methods, it can be used as a genome gap-closing tool. In the OLC paradigm of de novo assembly, the existing methods find a layout of reads by greedy search. In contrast, the robust regression approach generates a global optimal layout, which is the minimizer of a convex loss function.
 
 RegClosure can currently be used or tested in the following scenarios.
 
