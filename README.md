@@ -81,19 +81,19 @@ Column 7: 	Whether the libary is used for local assembly or making tab files, 1,
 Run with 40 threads
 
 ```
-python RunPipeline.py -g draft_genome.fasta -d iter-1 -t 40
+python RunPipeline.py -p prerequisite -g draft_genome.fasta -d iter-1 -t 40
 ```
 
 Re-run the *LocalAssembly* module
 
 ```
-python RunPipeline.py -g draft_genome.fasta -d iter-1 -t 40 -s LocalAssembly
+python RunPipeline.py -p prerequisite -g draft_genome.fasta -d iter-1 -t 40 -s LocalAssembly
 ```
 
 Iterate over the result of *RegCloser*
 
 ```
-python RunPipeline.py -g iter-1/output_genome.fasta -d iter-2 -t 40
+python RunPipeline.py -p prerequisite -g iter-1/output_genome.fasta -d iter-2 -t 40
 ```
 
 ### 4.4. Output files
