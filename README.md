@@ -11,6 +11,8 @@ RegCloser can currently be used or tested in the following scenarios:
 * Reconstruct complete and accurate microbial genomes by low-cost and accurate NGS data (an example is in `test/E.coli_simulation`).
 * Generate a globally optimal layout in the *de novo* assembly of TGS data (an example is in `test/E.coli_long_reads`).
 
+P.S. We tested the applicability of the robust regression approach to layout generation on TGS long reads in denovo assembly. A further complication than the gap-filling problem is that, from which strand each read comes from the target genomic DNA is unknown. Therefore, we first use a heuristic algorithm to orientate all reads in the connected graph, and then estimate their positions via robust regression. 
+
 ## 2. Installation
 You can download the software package by the command:
 
