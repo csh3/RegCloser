@@ -176,6 +176,6 @@ Please contact <cao.shenghao@foxmail.com> for any questions.
 
 ## 7. License
 
-**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License**
+**GNU General Public License v3.0 only**
 
-For details, please read `RegCloser/License`.
+For details, please read `RegCloser/license.txt`.
