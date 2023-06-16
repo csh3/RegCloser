@@ -179,3 +179,7 @@ Please contact <cao.shenghao@foxmail.com> for any questions.
 **GNU General Public License v3.0 only**
 
 For details, please read `RegCloser/license.txt`.
+
+## 8. Citation
+
+Cao, S., Li, M., & Li, L. M. (2023). RegCloser: a robust regression approach to closing genome gaps. BMC bioinformatics, 24(1), 249. https://doi.org/10.1186/s12859-023-05367-0
