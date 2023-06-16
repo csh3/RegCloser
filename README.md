@@ -182,4 +182,4 @@ For details, please read `RegCloser/license.txt`.
 
 ## 8. Citation
 
-Cao S, Li M, Li LM. RegCloser: a robust regression approach to closing genome gaps. BMC Bioinformatics. 2023;24(1):249. Published 2023 Jun 13. doi:10.1186/s12859-023-05367-0
+Cao S, Li M, Li LM. RegCloser: a robust regression approach to closing genome gaps. BMC Bioinformatics. 2023;24(1):249. Published 2023 Jun 13. https://doi.org/10.1186/s12859-023-05367-0
