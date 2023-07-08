@@ -56,10 +56,9 @@ We recommend to use *RegCloser* in an iterative way that you can take the output
 
 ### 4.2. Prerequisite file
 
-A prerequisite file is needed to specify the path of software package and the directory storing the sequence reads, as well as the information of different libraries. An example is illustrated below.
+A prerequisite file is needed to specify the directory storing the sequence reads and the information of different libraries. An example is illustrated below.
 
 ```
-Code_path: /home/RegCloser
 Reads_directory: /home/E.coli/reads
 frag		frag_1.fastq		frag_2.fastq		300     20     FR    1
 shortjump	shortjump_1.fastq	shortjump_2.fastq	3600    298    RF    2
