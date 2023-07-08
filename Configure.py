@@ -32,13 +32,12 @@ if not os.path.exists("scripts"):
 else:
 	os.system("rm -rf scripts; mkdir scripts")
 
+path = os.path.split(os.path.realpath(__file__))[0]
+
 library_info={}
 with open(args.p,'r') as fin: #'prerequisite'
 	longest_ins = -1000
 	longest_lib = ' '
-	path=fin.readline().strip().split(':')[1].strip()
-	if path.endswith('/'):
-		path=path[:-1]
 	reads_directory=fin.readline().strip().split(':')[1].strip()
 	if reads_directory.endswith('/'):
 		reads_directory=reads_directory[:-1]
