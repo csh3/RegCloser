@@ -1,0 +1,29 @@
+package:
+  name: regcloser
+  version: 1.0
+
+source:
+  path: Directory of the RegCloser package
+
+build:
+  number: 0
+  entry_points: 
+    - regcloser = RunPipeline:main
+
+requirements:
+  build:
+
+  run:
+    - python >=3
+    - biopython =1.77
+    - numpy =1.17.0
+    - networkx =2.5
+    - scipy =1.3.0
+    - bwa =0.7.17
+    - blast =2.9.0
+
+about:
+  home: https://github.com/csh3/RegCloser
+  license: GPL-3.0
+  summary: "RegCloser is a genome gap-closing tool based on the robust regression approach"
+  description: "The novel robust regression framework proposed in RegCloser is a general approach to DNA sequence assembly. It is applicable to both NGS and TGS data. In combination with any scaffolding methods, it can be used as a genome gap-closing tool. In the OLC paradigm of de novo assembly, the existing methods find a layout of reads by greedy search. In contrast, the robust regression approach generates a globally optimal layout, which is the minimizer of a convex loss function."
