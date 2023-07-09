@@ -44,10 +44,9 @@ args = parser.parse_args()
 print("\n--------------------------------------\n")
 print("Running PhrapCloser: -d %s -g %s -t %d -s %s -e %s\n"%(args.d, args.g, args.t, args.s, args.e))
 
+path = os.path.split(os.path.realpath(__file__))[0]
+
 with open(args.p,'r') as fin:
-    path=fin.readline().strip().split(':')[1].strip()
-    if path.endswith('/'):
-        path=path[:-1]
     maxExtendLen=0
     for line in fin:
         record = line.strip().split()
